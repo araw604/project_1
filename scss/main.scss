@@ -1,0 +1,317 @@
+
+@import "reset";
+@import "fonts";
+@import "mixin";
+
+html{
+	font-size: 16px;
+
+}
+.birds{
+	background: 
+	url("../images/birds.jpg") center center no-repeat fixed;
+}
+
+.Lauraipsum{
+	text-align: center;
+}
+
+.Lauraipsum img{
+	height: 6rem;
+	padding-top: 6rem;
+	margin: 0 auto;
+	display: block;
+}
+
+.Lauraipsum h2:nth-child(2) {
+	font-family: 'open_sans';
+	font-weight: bold;
+	font-size: 4rem;
+	color: white;
+	border-bottom: solid thin #feaa3a;
+	display: inline-block;
+	margin-top: 1rem;
+}
+
+.Lauraipsum h2:nth-child(3){
+	font-family: 'open_sans';
+	font-size: 2rem;
+	color: white;
+	margin: 1rem 0 3rem 0;
+
+}
+
+.hello-text {
+	text-align: center;
+}
+
+.hello-text img{
+	height: 6rem;
+	margin-top: 6rem;
+}
+
+.hello-text h3{
+	font-size: 2rem;
+	font-family: 'open_sans';
+	font-weight: bold;
+	color: #feaa3a;
+}
+
+.hello-text p{
+	font-family: 'open_sans';
+	color: white;
+	margin-top: 1rem;
+
+}
+
+.hello-text{
+	background-color: rgba(0,0,0,0.5);
+	padding: 2rem;
+}
+//////////////////////////////////////////
+//work exp para 1
+
+.web-widgets{
+	padding-top: 3rem;
+	font-family: 'open_sans';
+}
+
+.web-widgets h2, ul li{
+	text-align: center;
+}
+
+.web-widgets h2{
+	font-size: 1.5rem;
+	font-weight: bold;
+	border-bottom: solid thin #333;
+	padding-bottom: 1rem;
+}
+
+.web-widgets, .self-employed{
+	margin: 0 2rem;
+}
+
+.web-widgets ul li:nth-child(1), .self-employed li:nth-child(1) {
+	color: #feaa3a;
+	font-family: 'open_sans';
+	margin-top: 1rem; 
+
+}
+
+.web-widgets ul li, .self-employed ul li {
+	margin-bottom: .3rem;
+}
+
+.web-widgets ul li:nth-child(3), .self-employed ul li:nth-child(3){
+	font-style: italic;
+}
+
+
+.web-widgets p, .self-employed p {
+	margin: 1rem 0 1rem 0;
+}
+//////////////////
+//fixing the second fixing second para with additional 
+
+.self-employed  ul li{
+	font-family: 'open_sans';
+}
+
+.self-employed p{
+	font-family: 'open_sans';
+}
+
+.border-bottom{
+border-bottom: solid thin #333;
+padding-bottom: 1rem;
+}
+
+/////////////////////////////
+// Circles 
+
+.circle span {	
+  
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	border: 3px solid #feaa3a; 
+  	padding: 5px;
+  	margin: 10px 20px 0 0 ;
+  	display: flex;
+  	justify-content: center;
+ 	 align-items: center;
+ 	 color: white;
+}
+
+.container{
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ margin-top: 1rem; 
+}
+
+.heading {
+	text-align: center;
+	padding-top: 2rem;
+	font-family: 'open_sans';
+	color: white;
+	font-size: 1.7rem;
+	border-bottom: solid white;
+	padding: 1rem 2rem 1rem 2rem;
+	margin: 0 2rem;
+
+}
+
+.circles{
+	background:
+      linear-gradient( to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5) ),
+      url('../images/clouds.jpg') scroll no-repeat center center,
+      #333;
+      padding-bottom: 2rem;
+}
+
+.education h2, p:nth-child(1), p:nth-child(2), p:nth-child(3){
+	text-align: center;
+
+}
+
+.education h2 {
+	font-family: 'open_sans';
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin: 2rem 1rem;
+	border-bottom: solid thin #333;
+	padding-bottom: 1.5rem;
+}
+
+.education p:nth-child(2){
+	color: #feaa3a;
+	font-family: 'open_sans';
+	margin-bottom: .5rem;
+}
+
+.education p:nth-child(3){
+	font-family: 'open_sans';
+	margin-bottom: .7rem;
+}
+
+.education p:nth-child(4){
+	font-family: 'open_sans';
+	margin: 0 2rem;
+	padding-bottom: 3rem;
+}
+//////////////////////////////
+//footer
+
+.connected{
+	background-color: black;
+}
+
+.connected h2{
+	font-family: 'open_sans';
+	font-size: 1.5rem;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	padding: 1.5rem 0;
+	border-bottom: solid thin white;
+	margin: 0 2rem;
+}
+
+.connected p a{
+	color: #feaa3a;
+	text-decoration: none;
+}
+
+.connected p:nth-child(2){
+	margin-top: 1rem;
+	font-family: 'open_sans';
+}
+
+.connected p {
+	text-align: center;
+	color: white;
+	padding: .29rem;
+}
+
+.fontAwesome, .copyrightline{
+	text-align: center;
+	color: white;
+	margin: 2rem 0;
+}
+
+.fontAwesome{
+	color: #feaa3a;
+
+}
+
+.copyrightline h5{
+	font-family: 'open_sans';
+	padding-bottom: 1.5rem;
+	font-size: .6rem;
+}
+
+.fontAwesome i{
+	padding-right: .5rem;
+}
+
+@include bp(tablet) {
+	.hello-text {
+		display: flex;
+		text-align: left;
+	}
+	.hello-text span img{
+		height: 14rem;
+		margin: 0 auto;
+	}
+	.hello-text span p{
+		text-align: left;
+
+	}
+	.space-between{
+		margin-right: .9rem;
+	}
+
+	.web-widgets ul li, .web-widgets p{
+		text-align: left;
+	}
+
+	.Parent{
+		display: flex;
+
+	}
+	.child1{
+		margin-right: 8rem;
+
+	}
+	.child1 ul li{
+		display: inline-block;;
+	}
+	.child2 p{
+		text-align: left;
+	}
+	.lee {
+		font-size: .8rem;
+	}
+	.education h2, .education p:nth-child(2), .education p:nth-child(3) {
+		text-align: left;
+		margin-left: 2rem;
+	}
+	
+	.connected h2, .connected p, .copyrightline{
+		text-align: left;
+	}
+	.father{
+		display: flex;
+		justify-content: space-between;
+	}
+	.childone{
+		padding-left: 2rem; 
+	}
+	.childtwo{
+		padding-right: 2rem;
+	}
+	.copyrightline{
+		padding-left: 2.4rem;
+	}
+} 

@@ -1,0 +1,367 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Container used for styling the custom select, the buttom class below adds the bg gradient, corners, etc. */
+.custom-select {
+  position: relative;
+  height: 2rem;
+  display: block;
+  padding: 0;
+  width: 100%; }
+
+/* This is the native select, we're making everything but the text invisible so we can see the button styles in the wrapper */
+.custom-select select {
+  width: 100%;
+  margin: 0;
+  background: none;
+  border: 1px solid transparent;
+  outline: none;
+  box-sizing: border-box;
+  /* Remove select styling */
+  appearance: none; }
+
+/* Custom arrow sits on top of the select - could be an image, SVG, icon font, etc. or the arrow could just baked into the bg image on the select. Note this si a 2x image so it will look bad in browsers that don't support background-size. In production, you'd handle this resolution switch via media query but this is a demo. */
+.custom-select::after {
+  content: "";
+  position: absolute;
+  pointer-events: none; }
+
+/* Hover style */
+/* Focus style */
+.custom-select select:focus {
+  outline: none; }
+
+/* ------------------------------------  */
+/* START OF UGLY BROWSER-SPECIFIC HACKS */
+/* ----------------------------------  */
+/* OPERA - Pre-Blink nix the custom arrow, go with a native select button to keep it simple. Targeted via this hack http://browserhacks.com/#hack-a3f166304aafed524566bc6814e1d5c7 */
+x:-o-prefocus, .custom-select::after {
+  display: none; }
+
+/* IE 10/11+ - This hides native dropdown button arrow so it will have the custom appearance, IE 9 and earlier get a native select - targeting media query hack via http://browserhacks.com/#hack-28f493d247a12ab654f6c3637f6978d5 - looking for better ways to achieve this targeting */
+/* The second rule removes the odd blue bg color behind the text in the select button in IE 10/11 and sets the text color to match the focus style's - fix via http://stackoverflow.com/questions/17553300/change-ie-background-color-on-unopened-focused-select-box */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .custom-select select::-ms-expand {
+    display: none; }
+  .custom-select select:focus::-ms-value {
+    background: transparent;
+    color: #222; } }
+
+/* FIREFOX won't let us hide the native select arrow, so we have to make it wider than needed and clip it via overflow on the parent container. The percentage width is a fallback since FF 4+ supports calc() so we can just add a fixed amount of extra width to push the native arrow out of view. We're applying this hack across all FF versions because all the previous hacks were too fragile and complex. You might want to consider not using this hack and using the native select arrow in FF. Note this makes the menus wider than the select button because they display at the specified width and aren't clipped. Targeting hack via http://browserhacks.com/#hack-758bff81c5c32351b02e10480b5ed48e */
+/* Show only the native arrow */
+@-moz-document url-prefix() {
+  .custom-select {
+    overflow: hidden; }
+  .custom-select select {
+    width: 120%;
+    width: -moz-calc(100% + 3em);
+    width: calc(100% + em); } }
+
+/* Firefox focus has odd artifacts around the text, this kills that. See https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-focusring */
+.custom-select select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000; }
+
+/* ------------------------------------  */
+/*  END OF UGLY BROWSER-SPECIFIC HACKS  */
+/* ------------------------------------  */
+@font-face {
+  font-family: 'open_sans';
+  src: url("../fonts/opensans-bold-webfont.eot");
+  src: url("../fonts/opensans-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/opensans-bold-webfont.woff2") format("woff2"), url("../fonts/opensans-bold-webfont.woff") format("woff"), url("../fonts/opensans-bold-webfont.ttf") format("truetype"), url("../fonts/opensans-bold-webfont.svg#open_sansbold") format("svg");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'open_sans';
+  src: url("../fonts/opensans-bolditalic-webfont.eot");
+  src: url("../fonts/opensans-bolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/opensans-bolditalic-webfont.woff2") format("woff2"), url("../fonts/opensans-bolditalic-webfont.woff") format("woff"), url("../fonts/opensans-bolditalic-webfont.ttf") format("truetype"), url("../fonts/opensans-bolditalic-webfont.svg#open_sansbold_italic") format("svg");
+  font-weight: bold;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'open_sans';
+  src: url("../fonts/opensans-italic-webfont.eot");
+  src: url("../fonts/opensans-italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/opensans-italic-webfont.woff2") format("woff2"), url("../fonts/opensans-italic-webfont.woff") format("woff"), url("../fonts/opensans-italic-webfont.ttf") format("truetype"), url("../fonts/opensans-italic-webfont.svg#open_sansitalic") format("svg");
+  font-weight: normal;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'open_sans';
+  src: url("../fonts/opensans-regular-webfont.eot");
+  src: url("../fonts/opensans-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/opensans-regular-webfont.woff2") format("woff2"), url("../fonts/opensans-regular-webfont.woff") format("woff"), url("../fonts/opensans-regular-webfont.ttf") format("truetype"), url("../fonts/opensans-regular-webfont.svg#open_sansregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+html {
+  font-size: 16px; }
+
+.birds {
+  background: url("../images/birds.jpg") center center no-repeat fixed; }
+
+.Lauraipsum {
+  text-align: center; }
+
+.Lauraipsum img {
+  height: 6rem;
+  padding-top: 6rem;
+  margin: 0 auto;
+  display: block; }
+
+.Lauraipsum h2:nth-child(2) {
+  font-family: 'open_sans';
+  font-weight: bold;
+  font-size: 4rem;
+  color: white;
+  border-bottom: solid thin #feaa3a;
+  display: inline-block;
+  margin-top: 1rem; }
+
+.Lauraipsum h2:nth-child(3) {
+  font-family: 'open_sans';
+  font-size: 2rem;
+  color: white;
+  margin: 1rem 0 3rem 0; }
+
+.hello-text {
+  text-align: center; }
+
+.hello-text img {
+  height: 6rem;
+  margin-top: 6rem; }
+
+.hello-text h3 {
+  font-size: 2rem;
+  font-family: 'open_sans';
+  font-weight: bold;
+  color: #feaa3a; }
+
+.hello-text p {
+  font-family: 'open_sans';
+  color: white;
+  margin-top: 1rem; }
+
+.hello-text {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem; }
+
+.web-widgets {
+  padding-top: 3rem;
+  font-family: 'open_sans'; }
+
+.web-widgets h2, ul li {
+  text-align: center; }
+
+.web-widgets h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: solid thin #333;
+  padding-bottom: 1rem; }
+
+.web-widgets, .self-employed {
+  margin: 0 2rem; }
+
+.web-widgets ul li:nth-child(1), .self-employed li:nth-child(1) {
+  color: #feaa3a;
+  font-family: 'open_sans';
+  margin-top: 1rem; }
+
+.web-widgets ul li, .self-employed ul li {
+  margin-bottom: .3rem; }
+
+.web-widgets ul li:nth-child(3), .self-employed ul li:nth-child(3) {
+  font-style: italic; }
+
+.web-widgets p, .self-employed p {
+  margin: 1rem 0 1rem 0; }
+
+.self-employed ul li {
+  font-family: 'open_sans'; }
+
+.self-employed p {
+  font-family: 'open_sans'; }
+
+.border-bottom {
+  border-bottom: solid thin #333;
+  padding-bottom: 1rem; }
+
+.circle span {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 3px solid #feaa3a;
+  padding: 5px;
+  margin: 10px 20px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; }
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem; }
+
+.heading {
+  text-align: center;
+  padding-top: 2rem;
+  font-family: 'open_sans';
+  color: white;
+  font-size: 1.7rem;
+  border-bottom: solid white;
+  padding: 1rem 2rem 1rem 2rem;
+  margin: 0 2rem; }
+
+.circles {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/clouds.jpg") scroll no-repeat center center, #333;
+  padding-bottom: 2rem; }
+
+.education h2, p:nth-child(1), p:nth-child(2), p:nth-child(3) {
+  text-align: center; }
+
+.education h2 {
+  font-family: 'open_sans';
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 2rem 1rem;
+  border-bottom: solid thin #333;
+  padding-bottom: 1.5rem; }
+
+.education p:nth-child(2) {
+  color: #feaa3a;
+  font-family: 'open_sans';
+  margin-bottom: .5rem; }
+
+.education p:nth-child(3) {
+  font-family: 'open_sans';
+  margin-bottom: .7rem; }
+
+.education p:nth-child(4) {
+  font-family: 'open_sans';
+  margin: 0 2rem;
+  padding-bottom: 3rem; }
+
+.connected {
+  background-color: black; }
+
+.connected h2 {
+  font-family: 'open_sans';
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 1.5rem 0;
+  border-bottom: solid thin white;
+  margin: 0 2rem; }
+
+.connected p a {
+  color: #feaa3a;
+  text-decoration: none; }
+
+.connected p:nth-child(2) {
+  margin-top: 1rem;
+  font-family: 'open_sans'; }
+
+.connected p {
+  text-align: center;
+  color: white;
+  padding: .29rem; }
+
+.fontAwesome, .copyrightline {
+  text-align: center;
+  color: white;
+  margin: 2rem 0; }
+
+.fontAwesome {
+  color: #feaa3a; }
+
+.copyrightline h5 {
+  font-family: 'open_sans';
+  padding-bottom: 1.5rem;
+  font-size: .6rem; }
+
+.fontAwesome i {
+  padding-right: .5rem; }
+
+@media (min-width: 600px) {
+  .hello-text {
+    display: flex;
+    text-align: left; }
+  .hello-text span img {
+    height: 14rem;
+    margin: 0 auto; }
+  .hello-text span p {
+    text-align: left; }
+  .space-between {
+    margin-right: .9rem; }
+  .web-widgets ul li, .web-widgets p {
+    text-align: left; }
+  .Parent {
+    display: flex; }
+  .child1 {
+    margin-right: 8rem; }
+  .child1 ul li {
+    display: inline-block; }
+  .child2 p {
+    text-align: left; }
+  .lee {
+    font-size: .8rem; }
+  .education h2, .education p:nth-child(2), .education p:nth-child(3) {
+    text-align: left;
+    margin-left: 2rem; }
+  .connected h2, .connected p, .copyrightline {
+    text-align: left; }
+  .father {
+    display: flex;
+    justify-content: space-between; }
+  .childone {
+    padding-left: 2rem; }
+  .childtwo {
+    padding-right: 2rem; }
+  .copyrightline {
+    padding-left: 2.4rem; } }
