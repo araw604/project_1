@@ -1,0 +1,18 @@
+$smallbreakpoint: 600px;
+
+
+@mixin bp($point) {
+  
+  $bp-tablet: "(min-width: #{$smallbreakpoint})";
+
+  
+
+  @if $point == tablet {
+    @media #{$bp-tablet} { 
+    	@content; 
+
+    }
+  }
+  
+}
+

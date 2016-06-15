@@ -315,25 +315,3 @@ padding-bottom: 1rem;
 		padding-left: 2.4rem;
 	}
 } 
-
-
-@media screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)
-{
-	.space-between{
-		margin-right: 160px;
-	}
-	.space-between img {
-		color:red;
-	}
-	.birds{
-	background: 
-	url("../images/birds.jpg") ;
-}
-
-}
-
-@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ 
-	.hello-text h3,  .hello-text p{
-		margin-left: 185px;
-	}
-}
